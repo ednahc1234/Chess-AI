@@ -98,14 +98,7 @@ public class ChessAI : MonoBehaviour
         
         /* --------------------- Think --------------------- */
 
-        // Critical Part:
-        // We are about to change the heart of the Game Management which is taken care by BoardManager script
-        // And that is Chessmans[,] array located in BoardManager script
-        // We need to change it because in some functions which are declared in this script, which will think of NPC's next move,
-        // Are using some other class functions also. These other class functions are using BoardManager.Instance.Chessmans array
-        // As it is storing pointers to all the chessmans present on the board at some position.
-        // Hence already stored reference to the actual Chessmans[,] array and now assigning it the different clone we made
-        // (Same goes for all Kings and Rooks, EnPassant move array)
+    
         BoardManager.Instance.Chessmans = Chessmans;
         BoardManager.Instance.WhiteKing = Chessmans[ActualWhiteKing.currentX, ActualWhiteKing.currentY];
         BoardManager.Instance.BlackKing = Chessmans[ActualBlackKing.currentX, ActualBlackKing.currentY];
